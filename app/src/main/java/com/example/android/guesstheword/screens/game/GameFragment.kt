@@ -50,7 +50,6 @@ class GameFragment : Fragment() {
                 false
         )
 
-        Log.i("GameFragement","Called ViewModelProvider")
         viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
 
         binding.gameViewModel = viewModel
@@ -63,12 +62,7 @@ class GameFragment : Fragment() {
             }
         })
 
-        viewModel.currentTime.observe(this.viewLifecycleOwner, Observer { newTime ->
-            binding.timerText.text = DateUtils.formatElapsedTime(newTime)
-        })
-
         return binding.root
-
     }
 
     /**
